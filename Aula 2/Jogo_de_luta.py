@@ -1,0 +1,22 @@
+class Personagem:
+    def __init__(self, nome, forca):
+        self.nome = nome 
+        self.vida = 100  
+        self.forca = forca 
+
+    def atacar(self,alvo):
+        #alvo.vida = alvo.vida - self.forca 
+        alvo.vida -= self.forca
+
+gandalf = Personagem("Gandalf",20)
+sauron = Personagem("Sauron",15)
+
+while True:
+    gandalf.atacar(sauron)
+    sauron.atacar(gandalf)
+    if gandalf.vida <= 0:
+        print(f'{sauron.nome} venceu')
+        break
+    if sauron.vida <= 0:
+        print(f'{gandalf.nome} venceu')
+        break
