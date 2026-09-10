@@ -5,12 +5,14 @@ class ContaBancaria:
 
     def depositar(self,valor):
           self.saldo += valor 
-          print(f'Esse é o seu saldo: {self.saldo:.2f}')
+          print(f'Esse é o seu saldo: R${self.saldo:.2f}')
 
     def sacar(self,valor):
         if self.saldo <= valor:
+            print('Saldo insuficiente :')
+        else:
             self.saldo -= valor
-            print(f"Saque de {valor:.2f} realizado com sucesso")
+            print(f"Saque de R${valor:.2f} realizado com sucesso")
 
 conta = ContaBancaria("Mateus",0)
 
