@@ -1,21 +1,22 @@
 class Usuario:
-    def __init__(self,login,senha):
+    def __init__(self, login, senha):  
         self.__login = login
-        self.__senha = senha 
+        self.__senha = senha
 
-    def alterar_senha(self,senha_antiga,nova_senha):
+    #Método GETTER - NÃO FAZ PARTE DO EXERCÍCIO
+    def get_login(self):
+        return self.__login
+
+    #Método SETTER
+    def alterar_senha(self, senha_antiga):
         if senha_antiga == self.__senha:
-            self.__senha = nova_senha
-            print("Senha Alterada com sucesso!")
+            #só pergunta senha nova se acertar a antiga
+            self.__senha = input("Digite a nova senha:\n->")
+            print("Senha alterada com sucesso.")
         else:
-            print("Acesso negado: Senha Incorreta!")
+            print("Acesso negado: Senha atual incorreta")
 
-login = input("Digite o seu login: ")
-senha = input("Digite a sua senha: ")
 
-usuario = Usuario(login, senha)
-print("\n Usuário cadastrado com sucesso!")
+user = Usuario("admin", "123")
 
-senha_antiga = input("Digite a sua senha atual: ")
-nova_senha = input("Digite a sua nova senha: ")
-usuario.alterar_senha(senha_antiga, nova_senha)
+user.alterar_senha(input("Digite sua senha atual:\n->"))
